@@ -210,7 +210,7 @@ function formatSrc($src, $clid) {
 }
 
 function formatSipCause($sip_cause, $hangupcause) {
-	echo '<td class="record_col"><abbr class="simptip-position-top simptip-smooth simptip-fade" data-clipboard data-clipboard-text="'.$sip_cause.'" data-tooltip="Sip cause: '.$sip_cause.'">'.$hangupcause.'</abbr></td>' . PHP_EOL;
+	echo '<td class="record_col"><abbr class="simptip-position-top simptip-smooth simptip-fade" data-clipboard data-clipboard-text="'.$sip_cause.'" data-tooltip="Sip cause: '.$sip_cause.'">'.$hangupcause.' - '.$sip_cause.'</abbr></td>' . PHP_EOL;
 }
 
 

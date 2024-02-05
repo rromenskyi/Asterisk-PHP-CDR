@@ -304,18 +304,18 @@ foreach ($months as $i => $month) {
 </tr>
 <?php } ?>
 
-<?php if ( Config::get('display.search.dstchannel') == (1||2) ) { ?>
-<tr class="<?php if ( Config::get('display.search.dstchannel') == 2 ) { echo 'spoilers'; } ?>">
+<?php if ( Config::get('display.search.out_trunk') == (1||2) ) { ?>
+<tr class="<?php if ( Config::get('display.search.out_trunk') == 2 ) { echo 'spoilers'; } ?>">
 	<td>
-		<input type="radio" id="id_order_dstchannel" name="order" value="dstchannel">&nbsp;<label for="id_order_dstchannel">Исходящий канал</label>
+		<input type="radio" id="id_order_out_trunk" name="order" value="out_trunk">&nbsp;<label for="id_order_out_trunk">Исходящий канал</label>
 	</td>
 	<td>
-		<input class="margin-left0" type="text" name="dstchannel" id="dstchannel">
-		<input type="checkbox" name="dstchannel_neg" value="true" id="id_dstchannel_neg"> <label for="id_dstchannel_neg">Не</label> &ensp;
-		<input checked="checked" type="radio" name="dstchannel_mod" value="begins_with" id="id_dstchannel_mod1"> <label for="id_dstchannel_mod1">Начинается с</label> &ensp;
-		<input type="radio" name="dstchannel_mod" value="contains" id="id_dstchannel_mod2"> <label for="id_dstchannel_mod2">Содержит</label> &ensp; 
-		<input type="radio" name="dstchannel_mod" value="ends_with" id="id_dstchannel_mod3"> <label for="id_dstchannel_mod3">Заканчивается на</label> &ensp;
-		<input type="radio" name="dstchannel_mod" value="exact" id="id_dstchannel_mod4"> <label for="id_dstchannel_mod4">Равно</label> 
+		<input class="margin-left0" type="text" name="out_trunk" id="out_trunk">
+		<input type="checkbox" name="out_trunk_neg" value="true" id="id_out_trunk_neg"> <label for="id_out_trunk_neg">Не</label> &ensp;
+		<input checked="checked" type="radio" name="out_trunk_mod" value="begins_with" id="id_out_trunk_mod1"> <label for="id_out_trunk_mod1">Начинается с</label> &ensp;
+		<input type="radio" name="out_trunk_mod" value="contains" id="id_out_trunk_mod2"> <label for="id_out_trunk_mod2">Содержит</label> &ensp; 
+		<input type="radio" name="out_trunk_mod" value="ends_with" id="id_out_trunk_mod3"> <label for="id_out_trunk_mod3">Заканчивается на</label> &ensp;
+		<input type="radio" name="out_trunk_mod" value="exact" id="id_out_trunk_mod4"> <label for="id_out_trunk_mod4">Равно</label> 
 	</td>
 </tr>
 <?php } ?>

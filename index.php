@@ -77,9 +77,9 @@ $mod_vars['src'][] = empty($_REQUEST['src_neg']) ? null : $_REQUEST['src_neg'];
 $mod_vars['clid'][] = is_blank($_REQUEST['clid']) ? null : $_REQUEST['clid'];
 $mod_vars['clid'][] = empty($_REQUEST['clid_mod']) ? null : $_REQUEST['clid_mod'];
 $mod_vars['clid'][] = empty($_REQUEST['clid_neg']) ? null : $_REQUEST['clid_neg'];
-$mod_vars['dstchannel'][] = is_blank($_REQUEST['dstchannel']) ? null : $_REQUEST['dstchannel'];
-$mod_vars['dstchannel'][] = empty($_REQUEST['dstchannel_mod']) ? null : $_REQUEST['dstchannel_mod'];
-$mod_vars['dstchannel'][] = empty($_REQUEST['dstchannel_neg']) ? null : $_REQUEST['dstchannel_neg'];
+$mod_vars['out_trunk'][] = is_blank($_REQUEST['out_trunk']) ? null : $_REQUEST['out_trunk'];
+$mod_vars['out_trunk'][] = empty($_REQUEST['out_trunk_mod']) ? null : $_REQUEST['out_trunk_mod'];
+$mod_vars['out_trunk'][] = empty($_REQUEST['out_trunk_neg']) ? null : $_REQUEST['out_trunk_neg'];
 $mod_vars['dst'][] = $dst_number;
 $mod_vars['dst'][] = empty($_REQUEST['dst_mod']) ? null : $_REQUEST['dst_mod'];
 $mod_vars['dst'][] = empty($_REQUEST['dst_neg']) ? null : $_REQUEST['dst_neg'];
@@ -177,7 +177,7 @@ if ( $search_condition == '' ) {
 	}
 }
 
-$where = "$channel $src $clid $did $dstchannel $dst $userfield $accountcode $disposition";
+$where = "$channel $src $clid $did $out_trunk $dst $userfield $accountcode $disposition";
 
 if ( isset($_REQUEST['lastapp_neg']) && $_REQUEST['lastapp_neg'] == 'true' ) {
 	$lastapp = (empty($_REQUEST['lastapp']) || $_REQUEST['lastapp'] == 'all') ? null : "lastapp != '$_REQUEST[lastapp]'";
