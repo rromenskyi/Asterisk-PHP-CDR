@@ -103,7 +103,7 @@ function getFileParams($row) {
 	# Имя файла при отложенной конвертации
 	if ( Config::get('system.audio_defconv') == 1 && $recorded_file ) {
 		if ( $mycalldate_ymd < $mydate ) {
-			$recorded_file = preg_replace('#(.+)\.(wav|mp3|wma|ogg|aac)$#i', '${1}.'.$tmp['system_audio_format'], $recorded_file);
+			$recorded_file = preg_replace('#(.+)\.(wav|mp3|wma|ogg|aac|flac)$#i', '${1}.'.$tmp['system_audio_format'], $recorded_file);
 		} else {
 			$tmp['system_audio_format'] = 'wav';
 		}
@@ -127,7 +127,7 @@ function getFileParams($row) {
 	}
 	
 	$rec['path'] = Config::get('system.monitor_dir').'/'.$rec['filename'];
-	
+//	echo $rec['path'];
 	# Аудио
 	if ( is_file($rec['path'])
 		&& $recorded_file

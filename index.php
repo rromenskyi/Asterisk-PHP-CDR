@@ -466,6 +466,16 @@ if ( isset($_REQUEST['need_html']) && $_REQUEST['need_html'] == 'true' ) {
 				formatDisposition($row['disposition'], $row['amaflags']);
 				formatSrc($row['src'],$row['clid']);
 				formatDst($row['dst'], $row['dcontext'] );
+
+
+		if ( Config::exists('display.column.did') && Config::get('display.column.did') == 1 ) {
+		    if ( isset($row['did']) && strlen($row['did']) ) {
+			formatDst($row['did'], $row['dcontext'] . ' # ' . $row['dst']);
+		    } else {
+			formatDst('', $row['dcontext']);
+		    }					
+		}
+
 				if ( Config::exists('display.column.durwait') && Config::get('display.column.durwait') == 1 ) {
 					formatDurWait($row['duration'], $row['billsec']);
 				}
