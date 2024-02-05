@@ -427,6 +427,11 @@ if ( isset($_REQUEST['need_html']) && $_REQUEST['need_html'] == 'true' ) {
 						if ( Config::exists('display.column.dstchannel') && Config::get('display.column.dstchannel') == 1 ) {
 							echo '<th rowspan="2" class="record_col">Исх. канал</th>';
 						}
+
+						if ( Config::exists('display.column.sip_cause') && Config::get('display.column.sip_cause') == 1 ) {
+							echo '<th rowspan="2" class="record_col">SIP Cause</th>';
+						}
+
 						if ( Config::exists('display.column.file') && Config::get('display.column.file') == 1 ) {
 							echo '<th rowspan="2" class="record_col">Запись</th>';
 						}
@@ -461,13 +466,6 @@ if ( isset($_REQUEST['need_html']) && $_REQUEST['need_html'] == 'true' ) {
 				formatDisposition($row['disposition'], $row['amaflags']);
 				formatSrc($row['src'],$row['clid']);
 				formatDst($row['dst'], $row['dcontext'] );
-				if ( Config::exists('display.column.did') && Config::get('display.column.did') == 1 ) {
-					if ( isset($row['did']) && strlen($row['did']) ) {
-						formatDst($row['did'], $row['dcontext'] . ' # ' . $row['dst']);
-					} else {
-						formatDst('', $row['dcontext']);
-					}					
-				}
 				if ( Config::exists('display.column.durwait') && Config::get('display.column.durwait') == 1 ) {
 					formatDurWait($row['duration'], $row['billsec']);
 				}
@@ -490,14 +488,23 @@ if ( isset($_REQUEST['need_html']) && $_REQUEST['need_html'] == 'true' ) {
 					formatApp($row['lastapp'], $row['lastdata']);
 				}
 				if ( Config::exists('display.column.channel') && Config::get('display.column.channel') == 1 ) {
-					formatChannel($row['channel']);
+					formatChannel($row['in_trunk']);
 				}
 				if ( Config::exists('display.column.clid') && Config::get('display.column.clid') == 1 ) {
 					formatClid($row['clid']);
 				}
 				if ( Config::exists('display.column.dstchannel') && Config::get('display.column.dstchannel') == 1 ) {
-					formatChannel($row['dstchannel']);
+					formatChannel($row['out_trunk']);
 				}
+
+				if ( Config::exists('display.column.sip_cause') && Config::get('display.column.sip_cause') == 1 ) {
+					if ( isset($row['sip_cause']) && strlen($row['sip_cause']) ) {
+						formatSipCause($row['sip_cause'], $row['hangupcause']);
+					}
+				}
+
+
+
 				if ( Config::exists('display.column.file') && Config::get('display.column.file') == 1 ) {
 					formatFiles($row, $file_params);
 				}
